@@ -27,7 +27,10 @@ tasks {
     }
 
     publishPlugin {
-        token.set(providers.gradleProperty("jetbrainsToken").orElse(System.getenv("JETBRAINS_TOKEN")).orNull)
+        val tokenValue = project.findProperty("jetbrainsToken") as String? ?: System.getenv("JETBRAINS_TOKEN")
+        if (tokenValue != null) {
+            token.set(tokenValue)
+        }
         channels.set(listOf("stable"))
     }
 
