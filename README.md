@@ -1,254 +1,153 @@
-# Group File Template (GFT) IDEA Plugin
+# Group File Template – Community Edition
 
-[![Version](https://img.shields.io/badge/Version-5.6-blue.svg)](https://github.com/Louco11/ArchitecturalTemplates/wiki/Release-Notes)
-[![Version](https://img.shields.io/badge/IDEA-Marketplace-blue.svg)](https://plugins.jetbrains.com/plugin/16836-architectural-templates)
-[![License](https://img.shields.io/github/license/srs/gradle-node-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+[![Version](https://img.shields.io/badge/Version-5.7.0-blue.svg)](https://github.com/IvanLutsenko/Group-File-Template-GFT/releases)
+[![JetBrains Marketplace](https://img.shields.io/badge/JetBrains-Marketplace-blue.svg)](https://plugins.jetbrains.com/plugin/16836-architectural-templates)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-Plugin create a group of files by custom templates from IDEA interface.
+> **Community-maintained fork** of the original [Group File Template (GFT)](https://github.com/Louco11/Group-File-Template-GFT) plugin with extended compatibility for the latest Android Studio and IntelliJ IDEA versions.
 
-## ARTICLES
-### Medium
-- https://medium.com/@Doronec/how-to-create-modules-with-all-the-bindings-for-the-project-like-thanos-snap-ebf40fec8cd6
-- https://medium.com/@Doronec/create-a-plugin-for-jetbrains-ide-how-to-display-a-directory-not-from-a-project-in-the-project-510aaf42fa1c
+## 🎯 Why Community Edition?
 
-### Habr
-- https://habr.com/ru/companies/cian/articles/740928/
-- https://habr.com/ru/companies/cian/articles/816149/
+This fork focuses on **faster compatibility updates** with the latest IDE versions, especially Canary and Beta builds of Android Studio.
 
-# Quick start
-[Templates Example](https://github.com/Louco11/Group-File-Template-GFT/tree/master/templates)
+### Key Differences from Original
 
-First of all install the [Plugin From Marketplace](https://plugins.jetbrains.com/plugin/16836-architectural-templates).
+- ✅ **No upper IDE version restriction** - works with any IntelliJ Platform build 231+
+- ✅ **Supports latest Android Studio Canary** - tested with Narwhal, Otter, Panda and newer
+- ✅ **Regular updates** - community-driven maintenance
+- ✅ **100% compatible** - all original features preserved
 
-## Short Template
-To create an empty short template, click on the `"Tools"` -> `"GFT Creator"` -> `"Create New Short Template"` menu item
+### Version Compatibility
 
-<img src="screencut/create_empty_short_tamplate.png" alt="drawing" width="50%" />
+| Version | Supported IDE Versions |
+|---------|------------------------|
+| 5.7.0+ (Community Edition) | IntelliJ Platform 231+ (unlimited) |
+| 5.6 (Original) | IntelliJ Platform 231-253.* |
 
-### Add a piece of code to short templates
+## 📦 Installation
 
-- Highlight code
-- Right-click on the highlight code
-- Choose `"Add in Template"`
+### From JetBrains Marketplace (Recommended)
 
-<img src="screencut/add_pease_of_code.png" alt="drawing" width="50%" />
+1. Open Settings/Preferences → Plugins
+2. Search for "Group File Template – Community Edition"
+3. Click Install
+4. Restart IDE
 
-- If there is more than one template, choose which one to save it to, otherwise the plugin will add it to the only created template
-- Enter the name of the short template
+### Manual Installation
 
-<img src="screencut/enter_name.png" alt="drawing" width="50%" />
+Download the [latest release](https://github.com/IvanLutsenko/Group-File-Template-GFT/releases) and install from disk:
 
-### Use short templates
+1. Settings/Preferences → Plugins
+2. ⚙️ → Install Plugin from Disk...
+3. Select the downloaded `.zip` file
+4. Restart IDE
 
-Right-click or generic menu
+## 🚀 Quick Start
 
-<img src="screencut/righr_click_menu.png" alt="drawing" width="50%" />
-<img src="screencut/generic_menu.png" alt="drawing" width="50%" />
+Plugin creates a group of files by custom templates from IDEA interface.
 
+[See Templates Examples](https://github.com/IvanLutsenko/Group-File-Template-GFT/tree/master/templates)
 
-### Structure short templates
+### Short Templates
 
-The heart of the short template is the Json file main_short
+Create code snippets that can be quickly inserted anywhere.
 
-| Key            | 	Value                      |	Comment                 |
-|----------------|-----------------------------|--------------------------|
-| name           | 	Name Short Template        |                          |
-| description    | 	Description Short Template |                          |
-| addFile        | 	Files to create            |	list object File        |
+**To create:**
+1. `Tools` → `GFT Creator` → `Create New Short Template`
+2. Highlight code in editor
+3. Right-click → `Add in Template`
 
-structure `addFile`
+**To use:**
+- Right-click in editor → `Create From Template`
+- Or use Generate menu (Alt+Insert / Cmd+N)
 
-| Key        | Value	                              | comment |
-|------------|-------------------------------------|---------|
-| name       | name short template in menu         |         |
-| filePath   | file with template                	 |         |
+### File Templates
 
+Create groups of files with related structure (like feature modules, MVVM patterns, etc.).
 
-## Template
-To create an empty template, click on the `"Tools"` -> `"GFT Creator"`->`"Create New Template"` menu item
+**To create:**
+1. `Tools` → `GFT Creator` → `Create New Template`
+2. Enter template name
+3. Configure `Main.json` structure
 
-<img src="screencut/create_empty_template.png" alt="drawing" width="30%" />
+**To use:**
+- Right-click on directory → `Templates` → Select your template
 
-In the Dialog box enter the name of the template
+## 📖 Documentation
 
-<img src="screencut/DialogCreateEmptyTemplate.png" alt="drawing" width="50%" />
+For detailed usage instructions, see the original plugin documentation:
 
-The plugin will create an empty template at the root of your project.
+- [Medium Articles](https://medium.com/@Doronec)
+- [Habr Articles](https://habr.com/ru/companies/cian/articles/740928/)
+- [Full Documentation](https://github.com/Louco11/Group-File-Template-GFT)
 
-All templates are stored in the folder `"Your project name"/templates`
+### Template Structure
 
-<img src="screencut/TemplateInTreeProject.png" alt="drawing" width="20%" />
+Templates use JSON configuration with variable substitution:
 
-The heart of the template is the Json file Main
+**Parameters:**
+- `{param}[-s]` - snake_case
+- `{param}[-C]` - CamelCase
+- `{param}[-c]` - camelCase
+- `{package}` - Java/Kotlin package
+- `{time}`, `{day}`, `{month}`, `{year}` - timestamps
 
-Inside it has a structure
-
-| Key            | 	Value                                                | 	Comment                   |
-|----------------|-------------------------------------------------------|----------------------------|
-| name           | 	Name Template                                        |                            |
-| description    | 	Description Template                                 |                            |
-| param          | 	Variables to insert into the template                | 	list String               |
-| selectParam    | 	Variables to drop list with values into the template | 	list object SelectParam   |
-| addFile        | 	Files to create                                      | 	list object File          |
-| insertInFile   | 	Insert in file structure                             | 	list object InsertInFile  |
-
-structure `SelectParam`
-
-| Key           | Value	                                | comment       |
-|---------------|---------------------------------------|---------------|
-| paramName     | Variables to insert into the template |               |
-| paramValue    | values                	            | list String   |
-
-### param
-
-The parameter is an array of strings. It can be in the File Structure in name and path. 
-And also in the template itself. It is declared in brackets `{param}`.
-
-Options after param:
-* `[-S]` - SCREAMING_SNAKE_CASE
-* `[-s]` - snake_case
-* `[-C]` - CamelCase
-* `[-c]` - camelCase
-* `[-p]` - point.between.words
-* `[-sl]` - slash/between/word
-* `[-d]` - dash-between-word
-* `[-low]` - lowercase
-
-example {"NewFeature"}[-s] equals new_feature
-
-Example
-
-<img src="screencut/ParamExample.png" alt="drawing" width="40%" />
-<img src="screencut/ParamExample2.png" alt="drawing" width="50%" />
-
-Default parameter for Java and Kotlin `{package}` and `{pack}` for R.class example `import {pack}.R`
-
-`{time}` = 10:56
-
-`{day}` = 04
-
-`{month}` = 06
-
-`{year}` = 2022
-
-When creating files from a template, the plugin will correct to fill in the parameter fields.
-
-<img src="screencut/FillParam.png" alt="drawing" width="50%" />
-<img src="screencut/FillParam2.png" alt="drawing" width="50%" />
-
-### File it has a structure
-
-| Key                |	Value                                                   |	Comment                                                                                                  |
-|--------------------|-----------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| name               |	Name when creating a file                               |	You can use Param in the name                                                                            |
-| path               |	Additional directories for saving                       |	You can use Param in the name. Creates a catalog automatically if it does not exist                      |
-| fileTemplatePath   |	The name of the template from which the file is created |	It must be specified with the extension .tm and you can specify the directory where this file is located |
-
-If file name empty then create only directory
-
-To add resources to android, write the `"res/"` to the parameter `"path"` parameter
-
-To add test to android, write the `"test/"` to the parameter `"path"` parameter
-
-To add file in path project, write the `"~/"` to the parameter `"path"` parameter
-
-### InsertInFile it has a structure
-
-| Key              | 	Value                                         | 	Comment                                                                                                 |
-|------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| line             | 	Position line insert                          | 	                                                                                                        |
-| path             | 	Path to the file where to paste the code      | Path in project to file. You can use Param in the name.                                                                                |
-| fileTemplatePath | 	The name of the template from insert the code | It must be specified with the extension .tm and you can specify the directory where this file is located |
-
-if line == 0, insert code at the beginning of the file
-if line == -1, code insert in end file
-if count line > size line in file, insert the code at the end of the file
-
-# Create Template
-
-To create a file from a template, right-click on the path in which 
-we want to create and select the template we need from the list
-
-<img src="screencut/CreateFileFromTemplate.png" alt="drawing" width="60%" />
-
-### Add File In Template
-
-To add a file to the template, right-click on it and select `"Add file in template"` 
-The plugin will ask you to choose which template you want to add (if there are several of them) 
-and will ask you to rename the file as it will be named in the template.
-
-<img src="screencut/addFile1.png" alt="drawing" width="50%" />
-<img src="screencut/addFile2.png" alt="drawing" width="30%" />
-<img src="screencut/addFile3.png" alt="drawing" width="50%" />
-<img src="screencut/addFile4.png" alt="drawing" width="40%" />
-<img src="screencut/addFile5.png" alt="drawing" width="60%" />
-
-### Add new line insert in Template
-- In the file in which we want to insert, right-click on the line we need.
-- Select in the context menu `Add Insert From Template`
-- Select the template from which the insert will be made
-- In fileTemplatePath we specify the template from which the insertion will be made
-- When creating new files, an insertion will be made into the file we selected
-
-<img src="screencut/InserttoFile.png" alt="drawing" width="50%" />
-<img src="screencut/InserttoFile2.png" alt="drawing" width="50%" />
-<img src="screencut/InserttoFile3.png" alt="drawing" width="50%" />
-
-### Template extension callbacks
-You can add a kts scripts callback extension to the template. 
-You can use it for analytics, logging, modifying templates from variables or other actions.
-
-Just add extensions block to your template `main.json`
+**File Structure:**
 ```json
 {
-  "extensions": [
+  "name": "Feature Template",
+  "description": "Creates MVVM feature structure",
+  "param": ["FeatureName"],
+  "addFile": [
     {
-      "path": "TestTemplateExtensions.kts"
+      "name": "{FeatureName}[-C]Fragment.kt",
+      "path": "ui/{FeatureName}[-s]",
+      "fileTemplatePath": "Fragment.kt.tm"
     }
   ]
 }
 ```
 
-Kts script must extends `StructureFromTemplateExtension`
-```kotlin
-import com.arch.temp.extensions.StructureFromTemplateExtension
+## 🔧 Development
 
-object : StructureFromTemplateExtension {
-    // Extension methods
-}
+### Building from Source
+
+```bash
+git clone https://github.com/IvanLutsenko/Group-File-Template-GFT.git
+cd Group-File-Template-GFT
+./gradlew buildPlugin
 ```
-See extension methods documentation [StructureFromTemplateExtension.kt](src/main/kotlin/com/arch/temp/extensions/StructureFromTemplateExtension.kt)
 
-See extension example [TestTemplateExtensions.kts](templates/TestTemplate/TestTemplateExtensions.kts)
+Plugin will be in `build/distributions/`.
 
-### Move template in IDE
+### Publishing
 
-In the project tool window, a new field is GFTemplate.
+```bash
+export JETBRAINS_TOKEN=your_token
+./gradlew publishPlugin
+```
 
-<img src="screencut/Treetools.png" alt="drawing" width="50%" />
+## 🤝 Contributing
 
-Having selected we will be shown all our templates in the project and in the IDE
+Contributions are welcome! This is a community-maintained fork.
 
-<img src="screencut/templatepath.png" alt="drawing" width="60%" />
+**Ways to contribute:**
+- Report bugs via [Issues](https://github.com/IvanLutsenko/Group-File-Template-GFT/issues)
+- Submit Pull Requests with fixes
+- Share your templates in Discussions
+- Help update documentation
 
-You can move templates from a project to an IDE and back.
-`ide/templates` or `project/templates`
+## 📜 Credits
 
-To move or copy a template in a view or into a project. 
-Right-click on the template and select `Copy Template` or `Move Template`
+- **Original Author:** [Mikhail Dorontsov (Louco11)](https://github.com/Louco11)
+- **Original Repository:** [Group-File-Template-GFT](https://github.com/Louco11/Group-File-Template-GFT)
+- **Community Maintainer:** [Ivan Lutsenko](https://github.com/IvanLutsenko)
 
-<img src="screencut/moveTemplate.png" alt="drawing" width="42%" />
-<img src="screencut/copyTemplate.png" alt="drawing" width="38%" />
-
-After this we can rename the template.
-
-<img src="screencut/renameTemplate.png" alt="drawing" width="60%" />
-
-
-# License
+## 📄 License
 
 ```
 Copyright 2021 Doroncov Mihail
+Copyright 2025 Ivan Lutsenko (Community Edition)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -262,3 +161,12 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+---
+
+**⭐ If this fork helps you, please star the repository!**
+
+**🔗 Links:**
+- [JetBrains Marketplace](https://plugins.jetbrains.com/) (after publication)
+- [Original Plugin](https://plugins.jetbrains.com/plugin/16836-architectural-templates)
+- [Report Issues](https://github.com/IvanLutsenko/Group-File-Template-GFT/issues)
