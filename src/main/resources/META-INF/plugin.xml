@@ -1,39 +1,46 @@
 <idea-plugin url="https://www.jetbrains.com/idea">
-    <id>com.arch.temp</id>
 
-    <name>Group File Template (GFT)</name>
+    <id>io.github.ivanlutsenko.gft.community</id>
 
-    <vendor email="dor2014spb@gmail.com" url="https://www.linkedin.com/in/mikhail-dorontsov-396266100">Doronec</vendor>
+    <name>Group File Template – Community Edition</name>
 
-    <version>5.6</version>
+    <vendor
+        email="lutsenkoivan@gmail.com"
+        url="https://ivan.nullptr.party">
+        Ivan Lutsenko
+    </vendor>
 
-    <idea-version since-build="231" until-build="253.*"/>
+    <version>5.7.0</version>
+
+    <idea-version since-build="231"/>
 
     <description>
         <![CDATA[
-        Benefits of using the GFT plugin:<br/>
-        - Saves time: Automates the creation of repeating groups of files. Reduces errors: Reduces the likelihood of errors when manually creating files.<br/>
-        - Improves consistency: Ensures consistent file formatting and structure.<br/>
-        - Simplifies collaboration: Allows you to easily share templates with other developers.<br/>
+        <p>
+            <b>Group File Template – Community Edition</b> is a community-maintained
+            fork of the original <b>Group File Template (GFT)</b> plugin.
+        </p>
 
-        The GFT plugin may be useful:<br/>
-        - Developers who often create groups of files with - similar structure.<br/>
-        - Development teams who want to unify the style and formatting of their projects.<br/>
-        - Anyone who wants to increase their productivity when working with an IDE.<br/>
-    ]]>
+        <p>
+            Original plugin created by <b>Louco11</b>.
+        </p>
+
+        <p>
+            This version focuses on extended and faster compatibility with the latest
+            versions of <b>Android Studio</b> and <b>IntelliJ IDEA</b>,
+            while preserving the original functionality.
+        </p>
+        ]]>
     </description>
 
     <change-notes>
         <![CDATA[
-        <br/>
-        `v5.6`
-        <br/>
-        - Up max IDEA version
-        <br/>
-        `v5.5`
-        <br/>
-        - Add extensions callbacks for template creation
-        - Up max IDEA version
+        <p><b>5.7.0</b></p>
+        <ul>
+            <li>Community-maintained fork</li>
+            <li>Removed upper IDE version restriction</li>
+            <li>Improved compatibility with recent Android Studio releases</li>
+        </ul>
         ]]>
     </change-notes>
 

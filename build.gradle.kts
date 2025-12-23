@@ -1,11 +1,11 @@
 plugins {
-    id ("org.jetbrains.intellij") version "1.17.2"
+    id("org.jetbrains.intellij") version "1.17.2"
     java
     kotlin("jvm") version "1.9.23"
 }
 
-group = "com.arch"
-version = "5.4"
+group = "io.github.ivanlutsenko"
+version = "5.7.0"
 
 repositories {
     mavenCentral()
@@ -16,10 +16,27 @@ dependencies {
 }
 
 intellij {
-    version.value("IC-2023.3.5")
-//    version.set("232.10300.40.2321.11567975")
-//    type.set("AI")
-//    plugins.set(listOf("android"))
+    version.set("IC-2023.3.5")
+    type.set("IC")
 }
 
-tasks.getByName<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml") {}
+tasks {
+    patchPluginXml {
+        sinceBuild.set("231")
+        untilBuild.set("")
+    }
+
+    publishPlugin {
+        token.set(providers.gradleProperty("jetbrainsToken").orElse(System.getenv("JETBRAINS_TOKEN")).orNull)
+        channels.set(listOf("stable"))
+    }
+
+    withType<JavaCompile> {
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
+    }
+
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = "17"
+    }
+}
